@@ -1,0 +1,12 @@
+.posts {
+  flex: 9;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .posts {
+    flex-direction: column;
+  }
+}

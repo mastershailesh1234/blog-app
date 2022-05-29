@@ -1,0 +1,10 @@
+.single {
+  display: flex;
+  align-items: center;
+  /* flex-direction: column; */
+}
+@media (max-width: 600px) {
+  .single {
+    flex-direction: column;
+  }
+}
