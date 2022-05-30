@@ -18,7 +18,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify:true
+    useFindAndModify: true,
   })
   .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
@@ -42,6 +42,6 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-app.listen("5000", () => {
+app.listen(process.env.PORT || 8800, () => {
   console.log("Backend is running.");
 });
