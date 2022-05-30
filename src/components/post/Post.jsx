@@ -43,7 +43,7 @@ class CardBody extends React.Component {
 }
 
 export default function Post({ post }) {
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://shailesh-blog-app.herokuapp.com/images/";
   return (
     <article className="card">
       <CardHeader image={PF + post.photo} />
