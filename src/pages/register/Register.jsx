@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./register.css";
 
 export default function Register() {
@@ -9,9 +9,8 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-
+  const history = useHistory();
   const handleSubmit = async (e) => {
-    const navigate = useNavigate();
     e.preventDefault();
     setError(false);
     try {
@@ -23,7 +22,7 @@ export default function Register() {
           password,
         }
       );
-      res.data && navigate("/login");;
+      res.data && history.push("/login");
     } catch (err) {
       setError(true);
     }

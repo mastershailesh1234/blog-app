@@ -1,16 +1,16 @@
 import { useContext, useState } from "react";
 import "./write.css";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 import { Context } from "../../context/Context";
-import { useNavigate } from "react-router-dom";
+
 export default function Write() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
-const navigate = useNavigate();
+  const navigate = useHistory();
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
     const newPost = {
       username: user.username,
@@ -35,7 +35,7 @@ const navigate = useNavigate();
         "https://shailesh-blog-app.herokuapp.com/api/posts",
         newPost
       );
-      navigate("/post/" + res.data._id);
+      navigate.push("/post/" + res.data._id);
     } catch (err) {}
   };
   return (
