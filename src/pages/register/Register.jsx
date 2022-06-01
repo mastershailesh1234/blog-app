@@ -13,11 +13,14 @@ export default function Register() {
     e.preventDefault();
     setError(false);
     try {
-      const res = await axios.post("/auth/register", {
-        username,
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "https://shailesh-blog-app.herokuapp.com/api/auth/register",
+        {
+          username,
+          email,
+          password,
+        }
+      );
       res.data && window.location.replace("/login");
     } catch (err) {
       setError(true);
@@ -57,7 +60,11 @@ export default function Register() {
           Login
         </Link>
       </button>
-      {error && <span style={{color:"red", marginTop:"10px"}}>Something went wrong!</span>}
+      {error && (
+        <span style={{ color: "red", marginTop: "10px" }}>
+          Something went wrong!
+        </span>
+      )}
     </div>
   );
 }
