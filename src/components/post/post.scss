@@ -2,11 +2,9 @@
   width: 280px;
   display: block;
   margin: 60px auto;
-  box-shadow: 10px 5px 40px 20px grey;
   transition: 0.25s;
   overflow: hidden;
   &:hover {
-    box-shadow: 10px 5px 40px 20px grey;
     cursor: pointer;
 
     .button-primary {
