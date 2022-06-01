@@ -8,9 +8,9 @@ export default function Write() {
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
-
+const navigate = useNavigate();
   const handleSubmit = async (e) => {
-    const navigate = useNavigate();
+    
     e.preventDefault();
     const newPost = {
       username: user.username,
