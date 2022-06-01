@@ -4,7 +4,7 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./singlePost.css";
-
+import { useNavigate } from "react-router-dom";
 export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
@@ -14,6 +14,7 @@ export default function SinglePost() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getPost = async () => {
@@ -35,7 +36,7 @@ export default function SinglePost() {
           data: { username: user.username },
         }
       );
-      window.location.replace("/");
+      navigate("/");
     } catch (err) {}
   };
 

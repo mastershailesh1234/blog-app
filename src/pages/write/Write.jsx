@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import "./write.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
-
+import { useNavigate } from "react-router-dom";
 export default function Write() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -10,6 +10,7 @@ export default function Write() {
   const { user } = useContext(Context);
 
   const handleSubmit = async (e) => {
+    const navigate = useNavigate();
     e.preventDefault();
     const newPost = {
       username: user.username,
@@ -34,7 +35,7 @@ export default function Write() {
         "https://shailesh-blog-app.herokuapp.com/api/posts",
         newPost
       );
-      window.location.replace("/post/" + res.data._id);
+      navigate("/post/" + res.data._id);
     } catch (err) {}
   };
   return (
